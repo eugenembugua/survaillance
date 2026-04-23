@@ -20,39 +20,37 @@ The system operates on a decentralized **Sovereign Intelligence** model:
 
 ## Deployment Guide
 
-### 1. Environment Setup
+### Environment Setup
 Install the neural frameworks and high-speed communication layers:
 ```bash
 pip install torch torchvision facenet-pytorch opencv-python faiss-cpu streamlit fastapi uvicorn websockets requests pillow
 
-### 2. Enrollment (Initial Seeding)
+Enrollment (Initial Seeding)
 Place images of known citizens in /govt_db (format: Name.jpg) and run the enrollment tool to generate the biometric memory:
 
 Bash
 python enroll.py
 
-### 3. Engaging the Engine
+Engaging the Engine
 Start the central API server. This will automatically initiate the camera nodes:
 
 Bash
 uvicorn api_server:app --host 0.0.0.0 --port 8000
 
-### 4. Tactical Monitoring
+Tactical Monitoring
 Launch the dashboard to monitor feeds and initiate manhunts:
 
 Bash
 streamlit run dashboard.py
 
-## Core Capabilities
+Core Capabilities
 
-### Active Target Acquisition (Manhunt Mode)
+Active Target Acquisition (Manhunt Mode)
 Operators can upload a photo of a Person of Interest (POI) via the dashboard. The system extracts facial landmarks and distributes a 512-dimensional biometric signature to every node. Every camera feed then scans specifically for this target.
-
-### Zero-Lag Streaming
+Zero-Lag Streaming
 By utilizing WebSockets and asynchronous Python, the system bypasses traditional UI bottlenecks. The neural engine processes frames in the background and pushes them directly to the console for a fluid, real-time experience.
-
-### Secure Audit Ledger
+Secure Audit Ledger
 All system interactions—including camera views and target acquisitions—are recorded in a persistent SQLite database (intel.db) for forensic accountability.
 
-## Ethical Disclosure
+Ethical Disclosure
 This prototype is designed for educational purposes and localized security research. It demonstrates the technical capabilities of modern surveillance. Operators must ensure compliance with local privacy laws and data protection regulations before deployment.
